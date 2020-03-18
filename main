@@ -1,0 +1,82 @@
+from character import Character
+from character_functions import CharacterFunctions
+# import kivy
+
+"""
+    So, this program has a number of goals, split into 2 categories.
+    1. Actual, practical use - D&D Helper App, specifically for my in person game
+        a. Initiative tracker, re-roll each round possible
+        b. Health, add/subtract damage
+        c. AC
+        d. Saves (ToDo)
+        e. Spell DC (ToDo)
+        f. Allow user to add characters and enemies
+        g. Passive perception
+
+    2. Programming experience and practice
+        a. Python (new language)
+        b. Kivy
+            i. a GUI will add a lot more practical functionality
+        c. Multi-Platform App
+            i. iOS
+            ii. Android
+            iii. Windows
+            iv: OSX
+            V: Linux
+"""
+
+""" FOR REFERENCE
+This is a reST style.
+
+:param param1: this is a first param
+:param param2: this is a second param
+:returns: this is a description of what is returned
+:raises keyError: raises an exception
+"""
+
+
+class MyMainApp:
+
+    # Manually creating the characters to test various methods. Will do so via txt file eventually.
+    merimac = Character('Merimac', 51, 15, 6, 19)
+    # guessing the stats for the rest
+    amathyn = Character('Amathyn', 59, 18, -1, 12)
+    slag = Character('Slag', 57, 18, -1, 14)
+    ganak = Character('Ganak', 51, 14, 1, 14)
+    nym = Character('Nym', 45, 14, 2, 11)
+
+    temp_character_list = [merimac, amathyn, slag, ganak, nym]
+    character_list = CharacterFunctions(temp_character_list)
+
+    # need to check that this all still works given all the changes I just made
+    # display (verify all characters are present) reroll and display again (confirm new initiatives),
+    # add character and display (verify new character), remove character and display (verify removal)
+    """
+    character_list.display_list()
+
+    character_list.reroll_initiatives()
+
+    character_list.display_list()
+
+    character_list.add_character()
+
+    character_list.display_list()
+
+    character_list.remove_character()
+
+    character_list.display_list()
+    """
+
+
+"""
+    The basics are there now. Now is the time to start building the GUI,.
+    
+    Once that is done, we will look into using JSON, Protocol Buffers, or simple strings in a txt file so upload
+    information. Nick will need to be able to add groups of enemies or npcs on the fly for this to truly be useful.
+    
+    It may prove more useful to add a default constructor with base values, so he can simply add goblin1, goblin2, etc.
+    and their initiative bonus and health, since the rest can be looked up easy enough.
+    
+    After all that is in place, we can begin expanding the functionality further, adding more information about the
+    characters if we choose to.
+"""

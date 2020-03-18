@@ -1,0 +1,46 @@
+Just notes for me:
+
+This app is a tool for a friend of mine to use for D&D. He would like to experiment with rolling initiative
+(which determine turn order in combat) every round, not just at the beginning of an encounter. However, asking
+players to reroll every round and then order them properly would be extremely tedious and time consuming.
+So I'm making an app to do it for him. The biggest challenge is making it available to him. It was easy enough to
+write a script that will do this via command line (simply a 1d20 dice roll + initiative bonus and then sorted) but
+I would like to add additional functionality and make it available to him on his phone. The additional functions
+require a GUI as a CLI script is too tedious to use for this. These functions include keeping track of each characters
+armor class, health, passive perceptions, saves, and spell DC. All the information a DM typically needs to know about
+his players. Allowing him to track health is especially helpful, since he will need to include enemies and npcs.
+
+The GUI is another challenge. I decided on Kivy because it can be used for iOS (my phone) and Android (his phone), and
+uses Python (which I have been wanting to learn and work with.
+
+ToDo: Build a GUI
+First, open a menu that lets the user choose between 3 options:
+    1. Upload default characters (specific to our game)
+    2. Load saved characters (last used set of characters, I will allow users to save their current setup
+    3. Upload a custom file, something that can allow a user to create a list of characters in a txt file prior
+Note: I still need to make uploading from a txt file possible. Debating between string, JSON, and protocol buffers.
+        Strings are simplest, JSON is more prevalent and versatile (a better choice honestly), and protocol buffers
+        are the newest. They look excellent, but getting it set up could be a challenge. JSON is more likely to be
+        supported and not cause issues down the line.
+
+
+Next, it will display a list of characters and their stats, in order of current initiative.
+
+From here the user should have numerous options.
+    1. Change a characters stats by clicking on the stat in question
+    2. Add or remove characters from the list
+    3. Reroll initiatives (all of them).
+    4. When adding a character, it should be possible to add it in initiative order without re-rolling everyone else.
+        Nick may find this useful enough to use normally, and in that case he may decide not to roll initiative every
+        single round.
+
+Finally, I'd like to have a couple options outside of combat. These include:
+    1. "Long Rest" (reset all health to max)
+    2. Save current list: Write to default or custom txt file, saving all current characters.
+    3. Sort by name: Simply sort by alphabetical order, easier to find and adjust characters this way out of combat
+        when initiative isn't a factor.
+
+
+Should this prove useful, we can make changes so that it isn't quite so specific to this party.
+
+We should also get this up on GitHub for show while applying to jobs and such.
